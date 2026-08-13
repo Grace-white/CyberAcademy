@@ -448,3 +448,16 @@ footer p {
 .why-us {
     border-top: 1px solid #374151;
 }
+.learning-section button {
+    background-color: #00ff88;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.learning-section button:hover {
+    background-color: #00cc6a;
+}
