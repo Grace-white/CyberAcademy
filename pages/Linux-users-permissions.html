@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Users and Permissions | Cyber Academy</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>Cyber Academy</h2>
+
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="labs.html">Labs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <main class="page-content">
+
+        <h1>Linux Users and Permissions</h1>
+
+        <p>
+            Learn how Linux manages users, groups, file ownership,
+            and permissions to control access to files and resources.
+        </p>
+
+
+        <section class="course-modules">
+
+            <h2>Lesson 1: Linux Users</h2>
+
+            <p>
+                Linux allows multiple users to work on the same system.
+                Each user can have their own files, settings, and access
+                rights.
+            </p>
+
+            <p>
+                User accounts help the operating system control who can
+                access particular resources.
+            </p>
+
+
+            <h2>Lesson 2: User Groups</h2>
+
+            <p>
+                Groups allow administrators to organize users and assign
+                permissions to multiple users more efficiently.
+            </p>
+
+            <div class="course-card">
+
+                <h3>Why Groups Matter</h3>
+
+                <p>
+                    Instead of assigning the same permission individually
+                    to many users, an administrator can assign permissions
+                    to a group and then add the appropriate users to that
+                    group.
+                </p>
+
+            </div>
+
+
+            <h2>Lesson 3: File Ownership</h2>
+
+            <p>
+                Linux files and directories have an owner and an associated
+                group. Ownership helps determine which users and groups
+                can access a resource.
+            </p>
+
+
+            <h2>Lesson 4: File Permissions</h2>
+
+            <p>
+                Linux permissions control what users can do with files
+                and directories.
+            </p>
+
+            <div class="course-card">
+
+                <h3>Read — r</h3>
+
+                <p>
+                    Allows a user to read the contents of a file.
+                </p>
+
+            </div>
+
+
+            <div class="course-card">
+
+                <h3>Write — w</h3>
+
+                <p>
+                    Allows a user to modify a file.
+                </p>
+
+            </div>
+
+
+            <div class="course-card">
+
+                <h3>Execute — x</h3>
+
+                <p>
+                    Allows a file to be executed when appropriate, and
+                    provides directory traversal permission when applied
+                    to directories.
+                </p>
+
+            </div>
+
+
+            <h2>Lesson 5: Permission Categories</h2>
+
+            <p>
+                Linux permissions are commonly represented for three
+                categories of users:
+            </p>
+
+            <ul>
+                <li>Owner — the user who owns the file.</li>
+                <li>Group — users belonging to the file's group.</li>
+                <li>Others — all other users.</li>
+            </ul>
+
+
+            <h2>Lesson 6: Viewing Permissions</h2>
+
+            <p>
+                The <strong>ls -l</strong> command can be used to view
+                file permissions, ownership, and other information.
+            </p>
+
+            <p>
+                Example:
+            </p>
+
+            <p>
+                <strong>ls -l</strong>
+            </p>
+
+
+            <h2>Lesson 7: Changing Permissions</h2>
+
+            <p>
+                The <strong>chmod</strong> command can be used to change
+                file permissions.
+            </p>
+
+            <p>
+                Example:
+            </p>
+
+            <p>
+                <strong>chmod 644 notes.txt</strong>
+            </p>
+
+            <p>
+                Permission changes should always be made carefully,
+                especially on important system files.
+            </p>
+
+
+            <h2>Lesson 8: Why Permissions Matter in Cybersecurity</h2>
+
+            <p>
+                Proper permissions help prevent unauthorized users from
+                accessing or modifying sensitive information.
+                Understanding permissions is therefore an important
+                cybersecurity skill.
+            </p>
+
+
+            <h2>Key Takeaways</h2>
+
+            <ul>
+                <li>Linux supports multiple users and groups.</li>
+                <li>Files have owners and associated groups.</li>
+                <li>Read, write, and execute permissions control access.</li>
+                <li>Permissions apply to owners, groups, and others.</li>
+                <li>ls -l can display permissions and ownership.</li>
+                <li>chmod can modify file permissions.</li>
+                <li>Correct permissions are important for system security.</li>
+            </ul>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>&copy; 2026 CyberAcademy. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
