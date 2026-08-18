@@ -34,29 +34,204 @@
 
         <section class="course-modules">
 
-            <h2>Lab 1: Identify an IP Address</h2>
+<h2>Lab 1: Identify an IP Address</h2>
 
-            <div class="course-card">
+<div class="course-card">
 
-                <h3>Challenge</h3>
+    <h3>Challenge</h3>
 
-                <p>
-                    An IPv4 address identifies a device on an IP network.
-                    Identify which of the following is a valid IPv4 address.
-                </p>
+    <p>
+        Which of the following is a valid IPv4 address?
+    </p>
 
-                <ul>
-                    <li>192.168.1.25</li>
-                    <li>300.168.1.25</li>
-                    <li>192.168.1</li>
-                    <li>192.168.1.999</li>
-                </ul>
+    <form id="ipQuiz">
 
-                <p>
-                    <strong>Answer:</strong> 192.168.1.25
-                </p>
+        <label>
+            <input type="radio" name="ipAddress" value="correct">
+            192.168.1.25
+        </label>
+        <br><br>
 
-            </div>
+        <label>
+            <input type="radio" name="ipAddress" value="wrong">
+            300.168.1.25
+        </label>
+        <br><br>
+
+        <label>
+            <input type="radio" name="ipAddress" value="wrong">
+            192.168.1
+        </label>
+        <br><br>
+
+        <label>
+            <input type="radio" name="ipAddress" value="wrong">
+            192.168.1.999
+        </label>
+        <br><br>
+
+        <button type="button" onclick="checkIPAnswer()">
+            Check Answer
+        </button>
+
+    </form>
+
+    <p id="ipResult"></p>
+
+</div>
+
+
+<script>
+function checkIPAnswer() {
+
+    const selected = document.querySelector(
+        'input[name="ipAddress"]:checked'
+    );
+
+    const result = document.getElementById("ipResult");
+
+    if (!selected) {
+        result.textContent = "Please select an answer first.";
+        return;
+    }
+
+    if (selected.value === "correct") {
+        result.textContent =
+            "Correct! 192.168.1.25 is a valid IPv4 address.";
+    } else {
+        result.textContent =
+            "Not quite. An IPv4 address contains four numbers, each from 0 to 255.";
+    }
+}
+</script>
+
+<h2>Lab 2: Find Your IP Address on Linux</h2>
+
+<div class="course-card">
+
+    <h3>Practical Exercise</h3>
+
+    <p>
+        Open a Linux terminal and run:
+    </p>
+
+    <pre><code>ip addr</code></pre>
+
+    <p>
+        Look at the output and identify the IPv4 address.
+        IPv4 addresses normally appear next to the
+        <strong>inet</strong> label.
+    </p>
+
+    <h3>Your Task</h3>
+
+    <ol>
+        <li>Open your Linux terminal.</li>
+        <li>Run <code>ip addr</code>.</li>
+        <li>Identify the active network interface.</li>
+        <li>Find its IPv4 address.</li>
+        <li>Record the address for your lab notes.</li>
+    </ol>
+
+    <h3>Knowledge Check</h3>
+
+    <form id="linuxIpQuiz">
+
+        <p>
+            Which command displays network interfaces and
+            IP addressing information on Linux?
+        </p>
+
+        <label>
+            <input type="radio" name="linuxCommand" value="correct">
+            ip addr
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="linuxCommand" value="wrong">
+            pwd
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="linuxCommand" value="wrong">
+            whoami
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="linuxCommand" value="wrong">
+            mkdir
+        </label>
+
+        <br><br>
+
+        <button type="button" onclick="checkLinuxCommand()">
+            Check Answer
+        </button>
+
+    </form>
+
+    <p id="linuxCommandResult"></p>
+
+    <p>
+        <strong>Important:</strong> Only practice this on your own
+        computer or an authorized laboratory system.
+    </p>
+
+</div>
+
+
+<script>
+function checkLinuxCommand() {
+
+    const selected = document.querySelector(
+        'input[name="linuxCommand"]:checked'
+    );
+
+    const result = document.getElementById("linuxCommandResult");
+
+    if (!selected) {
+        result.textContent =
+            "Please select an answer first.";
+        return;
+    }
+
+    if (selected.value === "correct") {
+        result.textContent =
+            "Correct! The ip addr command displays network interfaces and IP addressing information.";
+    } else {
+        result.textContent =
+            "Not quite. Try again. The correct command is ip addr.";
+    }
+}
+</script>
+
+
+<div class="course-card video-card">
+
+    <h3>Watch the Demonstration</h3>
+
+    <p>
+        Follow along with the demonstration, then repeat the process
+        on your own authorized Linux system.
+    </p>
+
+    <div class="video-container">
+        <iframe
+           src="https://www.youtube.com/embed/wHfIFZlDxtU"
+            title="Finding your IP address on Linux"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
 
 
             <h2>Lab 2: Common Network Ports</h2>
