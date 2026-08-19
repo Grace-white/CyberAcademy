@@ -76,12 +76,13 @@
 
     </form>
 
-    <p id="ipResult"></p>
+    <p id="ipResult" class="quiz-result"></p>
 
 </div>
 
 
 <script>
+
 function checkIPAnswer() {
 
     const selected = document.querySelector(
@@ -90,19 +91,26 @@ function checkIPAnswer() {
 
     const result = document.getElementById("ipResult");
 
+    result.className = "quiz-result";
+
     if (!selected) {
-        result.textContent = "Please select an answer first.";
+        result.textContent =
+            "Please select an answer first.";
+        result.classList.add("quiz-warning");
         return;
     }
 
     if (selected.value === "correct") {
         result.textContent =
             "Correct! 192.168.1.25 is a valid IPv4 address.";
+        result.classList.add("quiz-correct");
     } else {
         result.textContent =
             "Not quite. An IPv4 address contains four numbers, each from 0 to 255.";
+        result.classList.add("quiz-wrong");
     }
 }
+
 </script>
 
 <h2>Lab 2: Find Your IP Address on Linux</h2>
@@ -176,7 +184,7 @@ function checkIPAnswer() {
 
     </form>
 
-    <p id="linuxCommandResult"></p>
+    <p id="linuxCommandResult" class="quiz-result"></p>
 
     <p>
         <strong>Important:</strong> Only practice this on your own
@@ -187,6 +195,7 @@ function checkIPAnswer() {
 
 
 <script>
+
 function checkLinuxCommand() {
 
     const selected = document.querySelector(
@@ -195,20 +204,26 @@ function checkLinuxCommand() {
 
     const result = document.getElementById("linuxCommandResult");
 
+    result.className = "quiz-result";
+
     if (!selected) {
         result.textContent =
             "Please select an answer first.";
+        result.classList.add("quiz-warning");
         return;
     }
 
     if (selected.value === "correct") {
         result.textContent =
             "Correct! The ip addr command displays network interfaces and IP addressing information.";
+        result.classList.add("quiz-correct");
     } else {
         result.textContent =
             "Not quite. Try again. The correct command is ip addr.";
+        result.classList.add("quiz-wrong");
     }
 }
+
 </script>
 
 
@@ -234,95 +249,425 @@ function checkLinuxCommand() {
 </div>
 
 
-            <h2>Lab 2: Common Network Ports</h2>
 
-            <div class="course-card">
+<h2>Lab 3: Common Network Ports</h2>
 
-                <h3>Challenge</h3>
+<div class="course-card">
 
-                <p>
-                    Match each service with its commonly associated port.
-                </p>
+    <h3>Challenge</h3>
 
-                <ul>
-                    <li>HTTP — 80</li>
-                    <li>HTTPS — 443</li>
-                    <li>SSH — 22</li>
-                    <li>DNS — 53</li>
-                </ul>
+    <p>
+        Match the network service with its commonly associated port.
+    </p>
 
-                <p>
-                    Understanding common ports helps security professionals
-                    interpret network traffic and service information.
-                </p>
+    <form id="portsQuiz">
 
-            </div>
+        <p><strong>Which port is commonly used by SSH?</strong></p>
+
+        <label>
+            <input type="radio" name="sshPort" value="correct">
+            22
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="sshPort" value="wrong">
+            53
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="sshPort" value="wrong">
+            80
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="sshPort" value="wrong">
+            443
+        </label>
+
+        <br><br>
+
+        <button type="button" onclick="checkSSHPort()">
+            Check Answer
+        </button>
+
+    </form>
+
+    <p id="sshPortResult" class="quiz-result"></p>
+
+    <hr>
+
+    <h3>Common Ports Reference</h3>
+
+    <ul>
+        <li>HTTP — 80</li>
+        <li>HTTPS — 443</li>
+        <li>SSH — 22</li>
+        <li>DNS — 53</li>
+    </ul>
+
+    <p>
+        Understanding common ports helps security professionals
+        interpret network traffic and identify services.
+    </p>
+
+</div>
 
 
-            <h2>Lab 3: TCP vs UDP</h2>
+<script>
+function checkSSHPort() {
 
-            <div class="course-card">
+    const selected = document.querySelector(
+        'input[name="sshPort"]:checked'
+    );
 
-                <h3>Challenge</h3>
+    const result = document.getElementById("sshPortResult");
 
-                <p>
-                    TCP and UDP are two important transport-layer protocols.
-                </p>
+    result.className = "quiz-result";
 
-                <p>
-                    <strong>TCP</strong> provides connection-oriented,
-                    reliable communication.
-                </p>
+    if (!selected) {
+        result.textContent =
+            "Please select an answer first.";
+        result.classList.add("quiz-warning");
+        return;
+    }
 
-                <p>
-                    <strong>UDP</strong> is connectionless and generally
-                    provides lower overhead.
-                </p>
-
-            </div>
-
-
-            <h2>Lab 4: Network Troubleshooting</h2>
-
-            <div class="course-card">
-
-                <h3>Challenge</h3>
-
-                <p>
-                    A computer cannot reach another authorized device on
-                    the network. Which tool can be useful for testing basic
-                    connectivity?
-                </p>
-
-                <p>
-                    <strong>Answer:</strong> ping
-                </p>
-
-            </div>
+    if (selected.value === "correct") {
+        result.textContent =
+            "Correct! SSH commonly uses port 22.";
+        result.classList.add("quiz-correct");
+    } else {
+        result.textContent =
+            "Not quite. SSH commonly uses port 22.";
+        result.classList.add("quiz-wrong");
+    }
+}
+</script>
 
 
-            <h2>Lab 5: Security Thinking</h2>
+<h2>Lab 4: TCP vs UDP</h2>
 
-            <div class="course-card">
+<div class="course-card">
 
-                <h3>Challenge</h3>
+    <h3>Scenario Challenge</h3>
 
-                <p>
-                    You discover an unfamiliar service running on an
-                    authorized laboratory system.
-                </p>
+    <p>
+        You are analyzing network traffic in an authorized lab.
+        You need a protocol that provides reliable, connection-oriented
+        communication.
+    </p>
 
-                <p>
-                    What should you do first?
-                </p>
+    <p>
+        Which protocol is the best answer?
+    </p>
 
-                <p>
-                    <strong>Answer:</strong> Identify and document the
-                    service before making changes, while staying within
-                    the laboratory's rules and scope.
-                </p>
+    <form id="tcpUdpQuiz">
 
-            </div>
+        <label>
+            <input type="radio" name="protocol" value="correct">
+            TCP
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="protocol" value="wrong">
+            UDP
+        </label>
+
+        <br><br>
+
+        <button type="button" onclick="checkProtocol()">
+            Check Answer
+        </button>
+
+    </form>
+
+    <p id="protocolResult" class="quiz-result"></p>
+
+
+    <hr>
+
+
+    <h3>Quick Reference</h3>
+
+    <ul>
+        <li>
+            <strong>TCP:</strong>
+            Connection-oriented and designed for reliable delivery.
+        </li>
+
+        <li>
+            <strong>UDP:</strong>
+            Connectionless and generally has lower communication overhead.
+        </li>
+    </ul>
+
+</div>
+
+
+<script>
+function checkProtocol() {
+
+    const selected = document.querySelector(
+        'input[name="protocol"]:checked'
+    );
+
+    const result = document.getElementById("protocolResult");
+
+    result.className = "quiz-result";
+
+    if (!selected) {
+        result.textContent =
+            "Please select an answer first.";
+        result.classList.add("quiz-warning");
+        return;
+    }
+
+    if (selected.value === "correct") {
+        result.textContent =
+            "Correct! TCP is connection-oriented and designed for reliable delivery.";
+        result.classList.add("quiz-correct");
+    } else {
+        result.textContent =
+            "Not quite. UDP is connectionless. The correct answer is TCP.";
+        result.classList.add("quiz-wrong");
+    }
+}
+</script>
+
+Save with **Ctrl + S**.
+
+Then refresh the page and test:
+
+1. No answer selected.
+2. UDP.
+3. TCP.
+
+Make sure the feedback box appears correctly each time.
+
+Don't touch Lab 5 yet. Tell me **done** after you've tested it.
+
+
+
+<h2>Lab 5: Network Troubleshooting</h2>
+
+<div class="course-card">
+
+    <h3>Scenario Challenge</h3>
+
+    <p>
+        A computer in your authorized laboratory cannot reach
+        another device on the same network.
+    </p>
+
+    <p>
+        You want to perform a basic connectivity test.
+        Which command should you try first?
+    </p>
+
+    <form id="troubleshootingQuiz">
+
+        <label>
+            <input type="radio" name="networkTool" value="correct">
+            ping
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="networkTool" value="wrong">
+            mkdir
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="networkTool" value="wrong">
+            passwd
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="networkTool" value="wrong">
+            history
+        </label>
+
+        <br><br>
+
+        <button type="button" onclick="checkNetworkTool()">
+            Check Answer
+        </button>
+
+    </form>
+
+    <p id="networkToolResult" class="quiz-result"></p>
+
+
+    <hr>
+
+
+    <h3>Practical Exercise</h3>
+
+    <p>
+        In your own authorized Linux environment, you can use:
+    </p>
+
+    <pre><code>ping -c 4 127.0.0.1</code></pre>
+
+    <p>
+        The address <strong>127.0.0.1</strong> refers to the
+        local host. This provides a safe starting point for
+        understanding basic connectivity testing.
+    </p>
+
+    <p>
+        <strong>Important:</strong> Only test systems and addresses
+        that you own or have explicit permission to test.
+    </p>
+
+</div>
+
+
+<script>
+function checkNetworkTool() {
+
+    const selected = document.querySelector(
+        'input[name="networkTool"]:checked'
+    );
+
+    const result = document.getElementById("networkToolResult");
+
+    result.className = "quiz-result";
+
+    if (!selected) {
+        result.textContent =
+            "Please select an answer first.";
+        result.classList.add("quiz-warning");
+        return;
+    }
+
+    if (selected.value === "correct") {
+        result.textContent =
+            "Correct! ping is commonly used to test basic network connectivity.";
+        result.classList.add("quiz-correct");
+    } else {
+        result.textContent =
+            "Not quite. The correct answer is ping.";
+        result.classList.add("quiz-wrong");
+    }
+}
+</script>
+
+
+<h2>Lab 6: Security Thinking</h2>
+
+<div class="course-card">
+
+    <h3>Scenario Challenge</h3>
+
+    <p>
+        You discover an unfamiliar service running on an
+        authorized laboratory system.
+    </p>
+
+    <p>
+        What should you do first?
+    </p>
+
+    <form id="securityThinkingQuiz">
+
+        <label>
+            <input type="radio" name="securityAction" value="wrong">
+            Immediately delete the service.
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="securityAction" value="correct">
+            Identify and document the service before making changes.
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="securityAction" value="wrong">
+            Attack the service to see what happens.
+        </label>
+
+        <br><br>
+
+        <label>
+            <input type="radio" name="securityAction" value="wrong">
+            Ignore it completely.
+        </label>
+
+        <br><br>
+
+        <button type="button" onclick="checkSecurityAction()">
+            Check Answer
+        </button>
+
+    </form>
+
+    <p id="securityActionResult" class="quiz-result"></p>
+
+
+    <hr>
+
+
+    <h3>Security Principle</h3>
+
+    <p>
+        Security professionals should understand and document
+        what they discover before making changes.
+    </p>
+
+    <p>
+        Always work within the authorized scope of the laboratory
+        or security assessment.
+    </p>
+
+</div>
+
+
+<script>
+function checkSecurityAction() {
+
+    const selected = document.querySelector(
+        'input[name="securityAction"]:checked'
+    );
+
+    const result = document.getElementById("securityActionResult");
+
+    result.className = "quiz-result";
+
+    if (!selected) {
+        result.textContent =
+            "Please select an answer first.";
+        result.classList.add("quiz-warning");
+        return;
+    }
+
+    if (selected.value === "correct") {
+        result.textContent =
+            "Correct! Identify and document the service before making changes.";
+        result.classList.add("quiz-correct");
+    } else {
+        result.textContent =
+            "Not quite. A security professional should first identify and document the service within the authorized scope.";
+        result.classList.add("quiz-wrong");
+    }
+}
+</script>
+
 
 
             <h2>Lab Rules</h2>
