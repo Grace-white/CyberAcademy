@@ -516,3 +516,37 @@ footer p {
     }
 
 }
+/* Networking Lab Quiz Options */
+
+#ipQuiz label,
+#linuxcommandQuiz label,
+#portsQuiz label,
+#tcpUdpQuiz label,
+#troubleshootingQuiz label,
+#securityThinkingQuiz label{
+    display: block;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#ipQuiz label:hover,
+#linuxcommandQuiz label:hover,
+#portsQuiz label:hover,
+#tcpUdpQuiz label:hover,
+#troubleshootingQuiz label:hover,
+#securityThinkingQuiz label:hover {
+    transform: translateX(4px);
+}
+
+#ipQuiz input,
+#linuxcommandQuiz input,
+#portsQuiz input,
+#tcpUdpQuiz input,
+#troubleshootingQuiz input,
+#securityThinkingQuiz input{
+    margin-right: 10px;
+}
